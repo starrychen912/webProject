@@ -1,0 +1,58 @@
+var filters = {
+  toFixPrice: function (value) {
+    if (value) {
+      return parseFloat(value).toFixed(2)
+    }
+    return '0.00'
+  },
+  toJSON: function (value) {
+      if (value) {
+        return JSON.parse(value)
+      }
+    },
+  toFixOfferName: function (value) {
+    if (value) {
+      return JSON.parse(value).NAME
+    }
+    return ''
+  },
+  toFixOfferSpec: function (value) {
+    if (value) {
+      var attr1 = JSON.parse(value).SPEC_SKU_ATTRIBUTE
+      var attr = JSON.parse(attr1)
+      var result = ''
+      var tempArr = []
+      for (var i = 0; i < attr.length; i++) {
+        var element = attr[i];
+        if (element.T == '1') {
+          tempArr.push(element.V)
+        }
+      }
+      for (var j = 0; j < tempArr.length; j++) {
+        var str = tempArr[j];
+        if (j < tempArr.length - 1) {
+          result += str + '，'
+        } else {
+          result += str
+        }
+      }
+      return result
+    }
+    return ''
+  },
+  timestamp: function (value) {
+    if ((typeof value) === 'string') {
+      return value.slice(0, 4) + '-' + value.slice(4, 6) + '-' + value.slice(6, 8) + '  ' + value.slice(8, 10) + ':' + value.slice(10, 12) + ':' + value.slice(12, 14)
+    } else {
+      return '——'
+    }
+  }
+}
+
+module.exports = {
+  toFixPrice: filters.toFixPrice,
+  toFixOfferName: filters.toFixOfferName,
+  toFixOfferSpec: filters.toFixOfferSpec,
+  timestamp: filters.timestamp,
+  toJSON:filters.toJSON
+}

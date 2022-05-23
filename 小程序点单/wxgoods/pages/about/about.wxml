@@ -1,0 +1,14 @@
+<cu-custom bgColor="bg-gradual-green" isBack="{{true}}">
+<view slot="backText">返回</view>
+<view slot="content">系统说明</view>
+</cu-custom>
+<view class='margin-xl bg-white padding-xl radius shadow-lg'>
+  <view class='text-center margin-bottom text-lg  text-grey'>系统说明</view>
+  <view class='text-content'>
+    <view>Hi！Dear~欢迎使用点餐小程序！</view>
+    <view class='margin-top-sm'>该项目是我个人开发的一款高颜值的微信小程序。里面有漂亮的UI与简洁的交互，如果有什么好的建议可以留言支持哦</view>
+    <view class='margin-top-sm'>项目使用原生小程序开发，用户扫码即可点餐下单，省去了诸多中间环节，提高了点餐效率</view>
+    <view class='margin-top-sm'>该项目小程序端客户浏览餐品并下单，下单后就有小姐姐接单送到仙人手中٩(๑❛ᴗ❛๑)۶</view>
+    <view class='margin-top-sm'>祝福祖国的花朵在修仙道路上披荆斩棘！</view>
+  </view>
+</view>

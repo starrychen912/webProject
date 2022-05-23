@@ -1,0 +1,55 @@
+<view class="indexContainer">
+<cu-custom bgColor="bg-gradual-blue" isBack="{{false}}">
+  <!-- <view slot="backText">返回</view> -->
+  <view slot="content">首页</view>
+</cu-custom>
+<swiper class="screen-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
+<!-- <swiper catchtap="carouselToDetail" indicator-dots="true" indicator-color="green" indicator-active-color="deeppink" autoplay="true" interval="3000" circular="false"> -->
+  <swiper-item>
+    <image data-detailId="1" src='{{rootUrl}}/images/swiper/swiper17.jpeg'></image>
+  </swiper-item>
+    <swiper-item>
+    <image data-detailId="2" src='{{rootUrl}}/images/swiper/swiper13.jpg'></image>
+  </swiper-item>
+    <swiper-item>
+    <image data-detailId="3" src='{{rootUrl}}/images/swiper/swiper14.jpg'></image>
+  </swiper-item>
+  <swiper-item>
+    <image data-detailId="4" src='{{rootUrl}}/images/swiper/swiper15.jpg'></image>
+  </swiper-item>
+    <swiper-item>
+    <image data-detailId="4" src='{{rootUrl}}/images/swiper/swiper16.jpg'></image>
+  </swiper-item>
+</swiper>
+<view class="cu-bar bg-white  margin-top solids-bottom" style="justify-content:center">
+    <text class="text-xl">热门促销</text> 
+</view> 
+<view class="goodsContainer cu-form-group" >
+  <view catchtap="toGoodsDetail" class="goodschild" data-id="{{item.id}}"  wx:for="{{goodsList}}" wx:key="id">
+    <image class="headerImage" src="{{rootImgUrl+item.mainPic}}"></image>
+    <view class="content">
+      <text class="userName">{{item.name}}</text>
+      <text class="userDesc text-blue">价格：{{'￥'+item.price}}</text>
+    </view>
+  </view>
+</view>
+
+<view class="cu-bar bg-white  margin-top solids-bottom" style="justify-content:center">
+    <text class="text-xl">猜你喜欢</text> 
+</view> 
+<view class="goodsContainer cu-form-group" >
+  <view catchtap="toGoodsDetail" class="goodschild" data-id="{{item.id}}"  wx:for="{{recommendList}}" wx:key="id">
+    <image class="headerImage" src="{{rootImgUrl+item.mainPic}}"></image>
+    <view class="content">
+      <text class="userName">{{item.name}}</text>
+      <text class="userDesc text-blue">价格：{{'￥'+item.price}}</text>
+    </view>
+  </view>
+</view>
+
+
+<view class="nodata" wx:if="{{list.length==0}}">
+  <image src="{{rootUrl}}/images/background/nodata.png"></image>
+</view>
+
+</view>

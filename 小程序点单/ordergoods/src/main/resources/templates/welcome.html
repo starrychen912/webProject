@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="admin/public/head::head(~{},~{},~{})">
+    <meta charset="UTF-8">
+    <title>欢迎使用-小程序点餐管理后台</title>
+</head>
+
+<body>
+<div class="weadmin-body">
+    <blockquote class="layui-elem-quote">欢迎使用小程序点餐管理后台！</blockquote>
+    <div class="layui-col-lg12 layui-collapse" style="border: none;">
+        <div class="layui-col-lg12 layui-col-md12">
+            <img src="/common/images/bg5.jpeg" style="max-width: 100%;max-height: 100%;width:100% " />
+            <!--统计信息展示-->
+
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+    layui.use(['jquery', 'element', 'util', 'admin', 'carousel'], function () {
+        var element = layui.element,
+            $ = layui.jquery,
+            carousel = layui.carousel,
+            util = layui.util,
+            admin = layui.admin;
+        //建造实例
+        carousel.render({
+            elem: '.weadmin-shortcut'
+            , width: '100%' //设置容器宽度
+            , arrow: 'none' //始终显示箭头
+            , trigger: 'hover'
+            , autoplay: false
+        });
+
+        carousel.render({
+            elem: '.weadmin-notice'
+            , width: '100%' //设置容器宽度
+            , arrow: 'none' //始终显示箭头
+            , trigger: 'hover'
+            , autoplay: true
+        });
+
+        function setTimeAgo(y, M, d, H, m, s, id) {
+            var str = util.timeAgo(new Date(y, M || 0, d || 1, H || 0, m || 0, s || 0));
+            $(id).html(str);
+            console.log(str);
+        };
+    });
+</script>
+
+</html>

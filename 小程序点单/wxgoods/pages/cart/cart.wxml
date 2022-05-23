@@ -1,0 +1,52 @@
+<wxs module="filter" src="../../utils/filter.wxs"></wxs>
+<cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">购物车</view>
+</cu-custom>
+
+<view class="shoppingcart-null" wx:if="{{list.length == 0}}">
+  <image class="shoppingcart-null-image" src="{{rootUrl}}/images/icon/shoppingcart-null.png"/>
+  <text class="shoppingcart-null-text">购物车空空如也~</text>
+  <view class="shoppingcart-null-button" bind:tap="toGoodsList">去逛逛</view>
+</view>
+  <checkbox-group  bindchange="checkboxChange">
+<view class="cu-list menu-avatar">
+    <view class="cu-item my-border-bottom {{modalName=='move-box-'+ index?'move-cur':''}}" wx:for="{{list}}" bindtouchstart="ListTouchStart" 
+    bindtouchmove="ListTouchMove" bindtouchend="ListTouchEnd" data-target="move-box-{{index}}" data-id="{{item.id}}">
+      <checkbox style="position: absolute;left:10rpx;margin-right:10rpx" value="{{item.id}}" checked="true" />
+      <view class="cu-avatar margin-lr-xl round lg" style="background-image:url({{rootImgUrl+item.goods.mainPic}});"></view>
+      <view class="content " style="left:250rpx;width:25%">
+        <view class="text-grey">{{item.goodsName}}</view>
+        <text class="text-price text-red">{{item.price}}</text>
+      </view>
+      <view class="content" style="left:60%;width:23%" > 
+        <view class="text-grey">折扣</view>
+        <text class="text-red">{{item.goods.field1==null?10:item.goods.field1+'折'}}</text>
+      </view>
+      <view class="" style="left:80%;display:flex;flex-direction:column;align-items:center;justify-content:center;width:20%;height:96rpx">
+        <view class="text-grey">数量</view>
+        <view style="display:flex;align-items:center;">
+          <view style="font-size:60rpx;cursor:pointer;" data-id="{{item.id}}" data-obj="{{item}}" catchtap="minusNum">-</view>
+          <view style="padding:15rpx">{{item.goodsNum}}</view>
+          <view style="font-size:50rpx;cursor:pointer;" data-id="{{item.id}}" catchtap="addNum">+</view>
+        </view>
+      </view>
+      <view class="move">
+        <view class="bg-red" data-id="{{item.id}}" catchtap="deleteCart">删除</view>
+      </view>
+    </view>
+</view>
+  </checkbox-group>
+
+<view class="shoppingcart-pay" wx:if="{{list.length >0}}">
+  <view class="price-pay-container">
+    <view class="price">
+      <text class="money text-xxl ">¥</text>
+      <text class="number text-xxl ">{{filter.toFixPrice(totalPrice ?  totalPrice : 0)}}</text>
+    </view>
+    <view class="pay-button" bind:tap="toOrder">提交订单</view>
+  </view>
+</view>
+
+
+  

@@ -1,0 +1,26 @@
+/* pages/goodsDetail/goodsDetail.wxss */
+swiper {
+  display: block;
+  height: 500rpx;
+}
+.numContainer{
+  padding: 0rpx 20rpx;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: center
+}
+.numContainer button{
+  width: 80rpx;
+  height: 80rpx;
+}
+.numright{
+  width: 90%;
+}
+.numContainer input{
+  padding: 0rpx 10rpx;
+  width: 80rpx;
+  height: 80rpx;
+  border: solid rgb(218, 215, 215) 3rpx;
+  text-align: center;
+}

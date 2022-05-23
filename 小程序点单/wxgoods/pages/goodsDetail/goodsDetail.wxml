@@ -1,0 +1,70 @@
+<!--pages/goodsDetail/goodsDetail.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">商品详情</view>
+</cu-custom>
+<!-- 商品主图轮播 -->
+<swiper class="screen-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
+<!-- <swiper catchtap="carouselToDetail" indicator-dots="true" indicator-color="green" indicator-active-color="deeppink" autoplay="true" interval="3000" circular="false"> -->
+  <swiper-item>
+    <image  src='{{rootImgUrl+goods.mainPic}}'></image>
+  </swiper-item>
+    <swiper-item>
+    <image  src='{{rootImgUrl+goods.subPic1}}'></image>
+  </swiper-item>
+    <swiper-item>
+    <image  src='{{rootImgUrl+goods.subPic2}}'></image>
+  </swiper-item>
+  <swiper-item>
+    <image src='{{rootImgUrl+goods.subPic3}}'></image>
+  </swiper-item>
+    <swiper-item>
+    <image src='{{rootImgUrl+goods.subPic4}}'></image>
+  </swiper-item>
+</swiper>
+<view class="cu-bar bg-white solid-bottom margin-top">
+  <view class='action'>
+    {{goods.name}}
+  </view>
+  <view class='action text-orange'>
+    {{'￥'+goods.price}}
+  </view>
+  <view class='action text-orange' wx:if="{{goods.field1!=null}}">
+    {{goods.field1+'折'}}
+  </view>
+</view>
+
+<view class="cu-bar bg-white solid-bottom margin-top">
+  <view class='action'>
+    数量
+  </view>
+</view>
+<view class="numContainer">
+  <button catchtap="handleMin">-</button>
+  <input value="{{chooseNumber}}" bindblur="changeNum"/>
+  <button catchtap="handleAdd">+</button>
+  <view class="numright"></view>
+</view>
+
+<view class="cu-bar bg-white margin-top-xs text-sm padding-tb-sm" style="min-height:200rpx;margin-bottom:100rpx">
+  <view class='action'>
+    <text>{{goods.content}}</text>
+  </view>
+</view>
+
+<view class="cu-bar bg-white tabbar border shop foot" style="bottom:0px;">
+  <button class="action" catchtap="toPageIndex">
+    <view class="cuIcon-homefill text-grey">
+      <!-- <view class="cu-tag badge"></view> -->
+    </view>
+    首页
+  </button>
+  <view class="action" catchtap="toCart">
+    <view class="cuIcon-cart">
+      <view class="cu-tag badge">{{cartNum}}</view>
+    </view>
+    购物车
+  </view>
+  <view class="bg-gradual-green submit" catchtap="addCart">加入购物车</view>
+  <view class="bg-gradual-blue submit" catchtap="addOrder">立即购买</view>
+</view>

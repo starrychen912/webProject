@@ -1,0 +1,74 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/cart/cart",
+  
+    
+    "pages/my/my",
+    "pages/order/order",
+    "pages/goods/goods",
+    "pages/login/login",
+    "pages/about/about",
+    "pages/goodsDetail/goodsDetail",
+    "pages/userEdit/userEdit",
+    "pages/userDetail/userDetail"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationStyle": "custom",
+    "navigationBarTextStyle": "white"
+  },
+  "usingComponents": {
+    "cu-custom": "/colorui/components/cu-custom"
+  },
+  "tabBar": {
+    "position": "bottom",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "/images/tab/index-gray.png",
+        "selectedIconPath": "/images/tab/index-blue.png"
+      },
+      {
+        "pagePath": "pages/goods/goods",
+        "text": "餐品",
+        "iconPath": "images/tab/goods-gray.png",
+        "selectedIconPath": "images/tab/goods-blue.png"
+      },
+      {
+        "pagePath": "pages/cart/cart",
+        "text": "购物车",
+        "iconPath": "images/tab/cart-gray.png",
+        "selectedIconPath": "images/tab/cart-blue.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "/images/tab/my-gray.png",
+        "selectedIconPath": "/images/tab/my-blue.png"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 100000,
+    "downloadFile": 100000
+  },
+  "requiredBackgroundModes": [
+    "audio",
+    "location"
+  ],
+  "plugins": {
+    "chooseLocation": {
+      "version": "1.0.3",
+      "provider": "wx76a9a06e5b4e693e"
+    }
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "sitemapLocation": "sitemap.json"
+}
